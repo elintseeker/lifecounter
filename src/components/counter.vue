@@ -36,7 +36,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700');
+/* archivo-narrow-regular - latin */
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Archivo Narrow Regular'), local('ArchivoNarrow-Regular'),
+       url('/fonts/archivo-narrow-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/archivo-narrow-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 .counter {
   font-family: 'Archivo Narrow', Helvetica, Roboto, Arial, sans-serif;
@@ -48,13 +56,18 @@ export default {
 
   > span {
     display: inline-block;
-    margin: 0 32px;
+    margin: 0 16px;
     font-size: 128px;
-    min-width: 162px;
   }
 
   &.p2 {
     transform: rotate(180deg);
+  }
+
+  @media (max-width: 960px) {
+    > span {
+      font-size: 86px;
+    }
   }
 }
 
